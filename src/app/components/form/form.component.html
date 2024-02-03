@@ -1,0 +1,151 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div class="card">
+        <div>
+            <span class="p-input">
+                <label for="firstName">firstName</label>
+                <input type="text" pInputText formControlName="firstName" required maxlength="10" 
+                [ngClass]="{'is-valid': submited && formControls['firstName'].errors}" />
+            </span>
+            <div *ngIf="submited && formControls['firstName'].errors">
+                <small class="errors" *ngIf="formControls['firstName'].errors['required']">please enter your firstName
+                </small>
+                <small class="errors" *ngIf="formControls['firstName'].errors['minlength']">firstName should be 6
+                    characters
+                </small>
+            </div>
+        </div>
+
+        <div>
+            <span class="p-input">
+                <label for="lastName">lastName</label>
+                <input type="text" pInputText formControlName="lastName" required maxlength="10" 
+                [ngClass]="{'is-valid': submited && formControls['lastName'].errors}" />
+            </span>
+            <div *ngIf="submited && formControls['lastName'].errors">
+                <small class="errors" *ngIf="formControls['lastName'].errors['required']">please enter your
+                    lastName</small>
+                <small class="errors" *ngIf="formControls['lastName'].errors['minlength']">lastName should be 6
+                    characters</small>
+            </div>
+        </div>
+
+        <div>
+            <span class="p-input">
+                <label for="username">username</label>
+                <input type="text" pInputText formControlName="username" required maxlength="10" 
+                [ngClass]="{'is-valid': submited && formControls['username'].errors}" />
+            </span>
+            <div *ngIf="submited && formControls['username'].errors">
+                <small class="errors" *ngIf="formControls['username'].errors['required']">please enter your
+                    username</small>
+                <small class="errors" *ngIf="formControls['username'].errors['minlength']">username should be 6
+                    characters</small>
+            </div>
+        </div>
+
+        <div>
+            <span class="p-input">
+                <label for="email">email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" pInputText formControlName="email" required
+                    [ngClass]="{ 'is-valid': submited && formControls['email'].errors }" />
+            </span>
+            <div *ngIf="submited && formControls['email'].errors">
+                <small class="errors" *ngIf="formControls['email'].errors['required']">please enter your email</small>
+                <small class="errors" *ngIf="formControls['email'].errors['minlength']">pease enter valid email</small>
+            </div>
+        </div>
+
+        <div>
+            <span class="p-input">
+                <label for="workEmail">workEmail</label>
+                <input type="text" pInputText formControlName="workEmail" required 
+                [ngClass]="{'is-valid': submited && formControls['workEmail'].errors}" />
+            </span>
+            <div *ngIf="submited && formControls['workEmail'].errors">
+                <small class="errors" *ngIf="formControls['workEmail'].errors['required']">please enter your
+                    workEmail</small>
+                <small class="errors" *ngIf="formControls['workEmail'].errors['minlength']">pease enter valid
+                    email</small>
+            </div>
+        </div>
+
+        <div>
+            <span class="p-input">
+                <label for="mobileNumber">mobile<br />Number</label>&nbsp;&nbsp;&nbsp;
+                <input type="text" pInputText formControlName="mobileNumber" required 
+                [ngClass]="{'is-valid': submited && formControls['mobileNumber'].errors}" />
+            </span>
+            <div *ngIf="submited && formControls['mobileNumber'].errors">
+                <small class="errors" *ngIf="formControls['mobileNumber'].errors['required']">please enter your
+                    mobileNumber</small>
+                <small class="errors" *ngIf="formControls['mobileNumber'].errors['minlength']">please enter valid
+                    mobileNumber</small>
+            </div>
+        </div>
+
+        <div>
+            <span class="p-input">
+                <label for="employeeId">employeeId</label>
+                <input type="text" pInputText formControlName="employeeId" required 
+                [ngClass]="{'is-valid': submited && formControls['employeeId'].errors}" />
+            </span>
+            <div *ngIf="submited && formControls['employeeId'].errors">
+                <small class="errors" *ngIf="formControls['employeeId'].errors['required']">please enter your
+                    employeeId</small>
+                <small class="errors" *ngIf="formControls['employeeId'].errors['minlength']">employeeId should be 6
+                    characters</small>
+            </div>
+        </div>
+
+        <div>
+            <span class="p-input">
+                <label for="salary">salary</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" pInputText formControlName="salary" required
+                    [ngClass]="{ 'is-valid': submited && formControls['salary'].errors }" />
+            </span>
+            <div *ngIf="submited && formControls['salary'].errors">
+                <small class="errors" *ngIf="formControls['salary'].errors['required']">please enter your salary</small>
+                <small class="errors" *ngIf="formControls['salary'].errors['minlength']">salary should be 5
+                    characters</small>
+            </div>
+        </div>
+
+        <div>
+            <label for="department">department</label>&nbsp;&nbsp;
+            <p-dropdown [options]="department" formControlName="department" optionLabel="name" [showClear]="true"
+                placeholder="Select a  department" [ngClass]="{
+          'is-valid': submited && formControls['department'].errors}"></p-dropdown>
+            <div *ngIf="submited && formControls['department'].errors">
+                <small class="errors" *ngIf="formControls['department'].errors['required']">please enter your
+                    department</small>
+            </div>
+        </div>
+
+        <div>
+            <label for="designation">designation</label>&nbsp;&nbsp;
+            <p-dropdown [options]="designation" formControlName="designation" optionLabel="name" [showClear]="true"
+                placeholder="Select a  designation" [ngClass]="{
+          'is-valid': submited && formControls['designation'].errors}"></p-dropdown>
+            <div *ngIf="submited && formControls['designation'].errors">
+                <small class="errors" *ngIf="formControls['designation'].errors['required']">please enter your
+                    designation</small>
+            </div>
+        </div>
+
+        <div>
+            <label for="repotingManager">repoting<br />Manager</label>&nbsp;
+            <p-dropdown [options]="repotingManager" formControlName="repotingManager" optionLabel="name"
+                [showClear]="true" placeholder="Select a  repotingManager" [ngClass]="{
+          'is-valid': submited && formControls['repotingManager'].errors}"></p-dropdown>
+            <div *ngIf="submited && formControls['repotingManager'].errors">
+                <small class="errors" *ngIf="formControls['repotingManager'].errors['required']">please enter your
+                    repotingManager</small>
+            </div>
+        </div>
+
+    </div>
+
+    <div>
+        <p-button label="Submit" type="Submit"></p-button>
+    </div>
+</form>

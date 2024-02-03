@@ -1,0 +1,18 @@
+
+
+.card{
+    display: grid;
+     grid-template-columns:repeat(2,1fr);
+     margin-right: 30vw; 
+}
+div{
+     padding: 20px;
+}
+
+input{
+    margin-left: 20px;
+}
+
+.errors{
+    color: #b61515;
+}
